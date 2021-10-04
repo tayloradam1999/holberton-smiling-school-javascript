@@ -133,5 +133,5 @@ From ```0-pricing```, create ```pricing.html```
 	-  A new Sort by is selected
 - Final result:  
   
-[!jp4](https://github.com/tayloradam1999/holberton-smiling-school-javascript/blob/main/readme_assets/jq3.gif)  
+![!jp4](https://github.com/tayloradam1999/holberton-smiling-school-javascript/blob/main/readme_assets/jq3.gif)  
   
