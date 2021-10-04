@@ -31,11 +31,11 @@ For this project, you will need: fonts from Google, JQuery, Bootstrap CSS/JS
   
 ## Task 0. Reuse and polish your Bootstrap integration  
   
-- Copy files from (0x0B. Implement a design with bootstrap)[https://github.com/tayloradam1999/holberton-smiling-school].  
+- Copy files from 0x0B. [Implement a design with bootstrap](https://github.com/tayloradam1999/holberton-smiling-school).  
 - Finalize if it's not done yet. Use fig files as reference:  
-  -  (Homepage)[https://intranet.hbtn.io/rltoken/mC4bLymOd9FMoIhiin8iFw]
-  -  (Pricing)[https://intranet.hbtn.io/rltoken/02-q4kxXjykgU4EAFg0enQ]
-  -  (Courses)[https://intranet.hbtn.io/rltoken/pk73WmNgM10PiHpp-0R0pQ]  
+  -  [Homepage](https://intranet.hbtn.io/rltoken/mC4bLymOd9FMoIhiin8iFw)
+  -  [Pricing](https://intranet.hbtn.io/rltoken/02-q4kxXjykgU4EAFg0enQ)
+  -  [Courses](https://intranet.hbtn.io/rltoken/pk73WmNgM10PiHpp-0R0pQ)  
   
 - **Interactions note:**
   -  Web pages must switch to the tablet version when the screen width is 768px
@@ -43,4 +43,95 @@ For this project, you will need: fonts from Google, JQuery, Bootstrap CSS/JS
   -  button hover/active: ```opacity: 0.9```  
   
 ## Task 1. Homepage - quotes  
+  
+- From ```0-homepage.html```, create ```1-homepage.html```.
+- Replace static quotes by dynamic loading:
+  -  URL: ```https://smileschool-api.hbtn.info/quotes```
+  - No static quotes should be present in the quotes section
+  - During the Ajax request, a loader should be present
+  - Carousel should work like before
+- Example of my loader:
+```css
+HTML:
+<div class="loader"></div>
+
+CSS:
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #C271FF;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+```
+- Final result:
+  
+![jq1](https://github.com/tayloradam1999/holberton-smiling-school-javascript/blob/main/readme_assets/jq1.gif)  
+  
+## Task 2. Homepage - popular tutorials  
+  
+- From ```1-homepage.html```, create ```2-homepage.html```  
+- Replace static video cards by dynamic loading:
+  - URL: ```https://smileschool-api.hbtn.info/popular-tutorials```
+  - No static video cards should be present in the quotes section
+  - During the Ajax request, a loader should be present
+  -  Carousel should work by sliding card by card (like GIF below) - this kind of carousel is not unique, make it generic to reuse it easily!
+  -  Don’t forget the responsive part!
+- Final result:  
+  
+![jp2](https://github.com/tayloradam1999/holberton-smiling-school-javascript/blob/main/readme_assets/jq2.gif)  
+  
+## Task 3. Homepage - latest videos
+  
+From ```2-homepage.html```, create ```homepage.html```
+- Replace static video cards by dynamic loading:
+  - URL: ```https://smileschool-api.hbtn.info/latest-videos```
+  - No static video cards should be present in the quotes section
+  - During the Ajax request, a loader should be present
+  -  Carousel should work by sliding card by card (like GIF below) - this kind of carousel is not unique, make it generic to reuse it easily!
+  -  Don’t forget the responsive part!
+- Final result:  
+  
+![jp3](https://github.com/tayloradam1999/holberton-smiling-school-javascript/blob/main/readme_assets/jq3.gif)  
+  
+# Task 4. Pricing - quotes
+  
+From ```0-pricing```, create ```pricing.html```  
+- Replace static quotes by dynamic loading: 
+  - URL: ```https://smileschool-api.hbtn.info/quotes```
+  - No static quotes should be present in the quotes section
+  - During the Ajax request, a loader should be present  
+  - Carousel should work like before
+- Same as the ```homepage.html```
+  
+# Task 5. Courses
+  
+- From ```0-courses.html```, create ```courses.html```.  
+- Replace static video card by dynamic loading:
+  -  URL: ```https://smileschool-api.hbtn.info/courses```
+    -  ```GET``` parameters:
+	  -  ```q```: search value (in our case, the value of the field KEYWORDS)
+	  -  ```topic```: topic filter value (in our case, the value of the field TOPICS)
+	  -  ```sort```: order of all courses (in our case, the value of the field SORT BY)
+  - No static video cards should be present in the section
+  - During the Ajax request, a loader should be present
+  - Dropdowns are dynamic (coming from the API):
+    -  Topic: list of ```topics```
+	- Sort by: list of ```sorts```
+  -  Search value should be initialized by the value ```q``` in the API response
+  -  The list of video cards is coming from ```courses``` in the API response
+  -  API request must be done when:
+    -  Search value is changing
+	-  A new Topic is selected
+	-  A new Sort by is selected
+- Final result:  
+  
+[!jp4](https://github.com/tayloradam1999/holberton-smiling-school-javascript/blob/main/readme_assets/jq3.gif)  
   
