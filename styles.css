@@ -1,0 +1,179 @@
+@font-face {
+	font-family: 'holberton_school-icon';
+	src:  url('fonts/holberton_school-icon.eot');
+	src:  url('fonts/holberton_school-icon.eot') format('embedded-opentype'),
+	  url('fonts/holberton_school-icon.ttf') format('truetype'),
+	  url('fonts/holberton_school-icon.woff') format('woff'),
+	  url('fonts/holberton_school-icon.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+  
+[class^="holberton_school-icon-"], [class*=" holberton_school-icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'holberton_school-icon' !important;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+  
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.holberton_school-icon-menu:before {
+	content: "\e911";
+}
+
+.holberton_school-icon-ic_facebook::before {
+	content: "\e908";
+	font-size: 3rem;
+}
+
+.holberton_school-icon-ic_twitter::before {
+	content: "\e90f";
+	font-size: 3rem;
+}
+
+.holberton_school-icon-ic_instagram::before {
+	content: "\e90a";
+	font-size: 3rem;
+}
+
+.holberton_school-icon-check::before {
+	content: "\e905";
+	cursor: default;
+	font-size: 2rem;
+	color: #82D24F;
+}
+
+.holberton_school-icon-search_1::before {
+	content: "\e912";
+	cursor: default;
+	font-size: 1.2rem;
+}
+
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
+    color: #C271FF !important;
+	text-decoration: underline;
+}
+
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Container formatting */
+
+.navContainer {
+	max-width: 1250px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.socialIcons {
+	width: 130px;
+}
+
+.table {
+	margin-bottom: 0rem !important;
+}
+
+/* Background pictures */
+
+#nav-and-hero {
+	background-image: url('images/pic_1.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+}
+
+#nav-and-hero2 {
+	background-image: url('images/pic_2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+}
+
+#nav-and-hero3 {
+	background-image: url('images/pic_3.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+}
+
+/* Forgot you can just give width and height in the img tags... implementation of this starts later */
+
+#helpme1 {
+	height: 40px;
+	width: 40px;
+}
+
+#helpme2 {
+	height: 40px;
+	width: 130px;
+}
+
+/* Not great with moving divs! Move them with css instead ;) */
+
+#helpme3 {
+	position: relative;
+	top: -1.5rem;
+}
+
+/* Text sizing and formatting */
+
+#nav-and-hero h2 {
+	font-size: 103px;
+	line-height: 155px;
+}
+
+#GoPro {
+	font-size: 70px;
+	line-height: 60px;
+}
+
+#faq {
+	font-size: 60px;
+	line-height: 60px;
+}
+
+#coursesHeader {
+	font-size: 35px;
+	line-height: 60px;
+}
+
+/* Colors to use :) */
+
+.purp {
+	color: #C271FF;
+}
+
+.purp-background {
+	background-color: #C271FF;
+}
+
+.blue-background {
+	background-color: #071629;
+}
+
+.white-background {
+	background-color: white;
+}
+
+/* Media queries to overwrite Bootstrap attributes */
+
+@media screen and (max-width: 576px) {
+	.navbar {
+		justify-content: space-between !important;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.navbar {
+		justify-content: center !important;
+	}
+}
