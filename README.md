@@ -1,6 +1,6 @@
 # holberton-smiling-school-javascript
 
-## In this project, we are finalizing our previous Bootstrap project (0x0B. Implement a design with bootstrap)[https://github.com/tayloradam1999/holberton-smiling-school].  
+## In this project, we are finalizing our previous Bootstrap project [0x0B. Implement a design with bootstrap](https://github.com/tayloradam1999/holberton-smiling-school).  
   
 **ONE MAJOR NOTE**: As a cohort, my school never managed to get a multi-item carousel working the way our previous project was requiring, so our instructor has let us slide with using anything that will meet THIS project's task's requirements. ***FOR ME***, that means I have made the sections on all ```homepage.html``` files that include a multi-item carousel into a **SINGLE ITEM CAROUSEL.** 
 
