@@ -1,8 +1,9 @@
 window.onload = function run() {
-	grabData();
+	grabData1();
+	grabData2();
 }
 
-function grabData() {
+function grabData1() {
 	$('.loader').show();
 	$.ajax({
 		type: 'GET',
@@ -46,11 +47,56 @@ function grabData() {
 				</div>
 			</div>`);
 		},
-		complete: function() {
-			$('.loader').hide();
-		},
 		error: function(error) {
 			console.log(error);
+		},
+		complete: function() {
+			$('.loader').hide();
+		}
+	});
+}
+
+function grabData2() {
+	$('.myLoad').show();
+	$.ajax({
+		type: 'GET',
+		url: 'https://smileschool-api.hbtn.info/popular-tutorials',
+		dataType: 'json',
+		jsonp: false,
+		cache: false,
+		success: function(data) {
+			for (let i = 0; i < data.length; i++) {
+				$(`#myCarouselItem${i}`).html("");
+				$(`#myCarouselItem${i}`).append(
+					`<div class="card col-4 border-0">
+						<img class="card-img-top" id="popTutPic1" src="${data[i].thumb_url}" alt="Card image cap">
+						<img class="card-img-overlay mx-auto" id="play1" src="images/play.png" alt="play button"
+							height="150px" width="150px">
+						<div class="card-body">
+							<p class="card-title" id="cardTitle1">${data[i].title}</p>
+							<p class="card-text" id="cardText1">${data[i][`sub-title`]}</p>
+							<img class="rounded-circle" src="${data[i].author_pic_url}" id="profile1" height="25px" width="25px">
+							<span class="purp" id="profileName1">${data[i].author}</span>
+							<div class="row justify-content-between mx-3">
+								<div class="row mt-2" id="myStar${i}">
+								</div>
+								<p class="purp mt-2">${data[i].duration}</p>
+							</div>
+						</div>
+					</div>`);
+				for (let x = 0; x < data[i].star; x++) {
+					$(`#myStar${i}`).append(`<img src="images/star_on.png" height="26px" width="26px" alt="star on">`);
+				}
+				for (let x = 0; x < (5 - data[i].star); x++) {
+					$(`#myStar${i}`).append(`<img src="images/star_off.png" height="26px" width="26px" alt="star off">`);
+				}
+			}
+		},
+		error: function(error) {
+			alert(error);
+		},
+		complete: function() {
+			$('.myLoad').hide();
 		}
 	});
 }
