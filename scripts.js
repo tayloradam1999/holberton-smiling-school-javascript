@@ -125,7 +125,8 @@ function grabData3() {
 						<img class="rounded-circle" src="${data[i].author_pic_url}" height="25px" width="25px">
 						<span class="purp">${data[i].author}</span>
 						<div class="row justify-content-between mx-3">
-							<div class="row mt-2" id="myStar${i}"></div>
+							<div class="row mt-2" id="myStar${i}">
+							</div>
 							<p class="purp mt-2">${data[i].duration}</p>
 						</div>
 					</div>
