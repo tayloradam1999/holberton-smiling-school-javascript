@@ -2,6 +2,7 @@ window.onload = function run() {
 	grabData1();
 	grabData2();
 	grabData3();
+	grabData4();
 }
 
 function grabData1() {
@@ -136,6 +137,40 @@ function grabData3() {
 		},
 		complete: function() {
 			$('.Spinny').hide();
+		}
+	})
+}
+
+function grabData4() {
+	$('.TheLoad').show();
+	$.ajax({
+		type: 'GET',
+		url: 'https://smileschool-api.hbtn.info/quotes',
+		dataType: 'json',
+		jsonp: false,
+		cache: false,
+		success: function(data) {
+			for (let i = 0; i < data.length; i++) {
+				$(`#TheCarry${i}`).html("");
+				$(`#TheCarry${i}`).append(
+					`<div class="col-3 col-md-2 mr-5">
+					<img class="rounded-circle" src="${data[i].pic_url}" height="160"
+						width="160" alt="First slide">
+				</div>
+				<div class="col-md-5 pr-4 mr-4">
+					<div class="card-body text-center">
+						<h1 class="lead text-white" id="TheText1">${data[i].text}</h1>
+						<p class="text-white font-weight-bold" id="TheName1">${data[i].name}</h5>
+						<p class="text-white font-italic" id="TheTitle1">${data[i].title}</p>
+					</div>
+				</div>`);
+			}
+		},
+		error: function(error) {
+			alert(error);
+		},
+		complete: function() {
+			$('.TheLoad').hide();
 		}
 	})
 }
