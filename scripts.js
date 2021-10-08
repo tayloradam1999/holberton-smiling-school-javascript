@@ -125,17 +125,17 @@ function grabData3() {
 						<img class="rounded-circle" src="${data[i].author_pic_url}" height="25px" width="25px">
 						<span class="purp">${data[i].author}</span>
 						<div class="row justify-content-between mx-3">
-							<div class="row mt-2" id="myStar${i}">
+							<div class="row mt-2" id="Rating${i}">
 							</div>
 							<p class="purp mt-2">${data[i].duration}</p>
 						</div>
 					</div>
 				</div>`);
 				for (let x = 0; x < data[i].star; x++) {
-					$(`#myStar${i}`).append(`<img src="images/star_on.png" height="26px" width="26px" alt="star on">`);
+					$(`#Rating${i}`).append(`<img src="images/star_on.png" height="26px" width="26px" alt="star on">`);
 				}
 				for (let x = 0; x < (5 - data[i].star); x++) {
-					$(`#myStar${i}`).append(`<img src="images/star_off.png" height="26px" width="26px" alt="star off">`);
+					$(`#Rating${i}`).append(`<img src="images/star_off.png" height="26px" width="26px" alt="star off">`);
 				}
 			}
 		},
