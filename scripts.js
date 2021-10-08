@@ -1,6 +1,7 @@
 window.onload = function run() {
 	grabData1();
 	grabData2();
+	grabData3();
 }
 
 function grabData1() {
@@ -99,4 +100,42 @@ function grabData2() {
 			$('.myLoad').hide();
 		}
 	});
+}
+
+function grabData3() {
+	$('.Spinny').show();
+	$.ajax({
+		type: 'GET',
+		url: 'https://smileschool-api.hbtn.info/latest-videos',
+		dataType: 'json',
+		jsonp: false,
+		cache: false,
+		success: function(data) {
+			for (let i = 0; i < data.length; i++) {
+				$(`#myCarousel${i}`).html("");
+				$(`#myCarousel${i}`).append(
+					`<div class="card col-4 border-0">
+					<img class="card-img-top" src="${data[i].thumb_url}" alt="Card image cap">
+					<img class="card-img-overlay mx-auto" src="images/play.png" alt="play button"
+						height="150px" width="150px">
+					<div class="card-body">
+						<p class="card-title">${data[i].title}</p>
+						<p class="card-text">${data[i][`sub-title`]}.</p>
+						<img class="rounded-circle" src="${data[i].author_pic_url}" height="25px" width="25px">
+						<span class="purp">${data[i].author}</span>
+						<div class="row justify-content-between mx-3">
+							<div class="row mt-2" id="myStar${i}"></div>
+							<p class="purp mt-2">${data[i].duration}</p>
+						</div>
+					</div>
+				</div>`);
+			}
+		},
+		error: function(error) {
+			alert(error);
+		},
+		complete: function() {
+			$('.Spinny').hide();
+		}
+	})
 }
