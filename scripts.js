@@ -130,6 +130,12 @@ function grabData3() {
 						</div>
 					</div>
 				</div>`);
+				for (let x = 0; x < data[i].star; x++) {
+					$(`#myStar${i}`).append(`<img src="images/star_on.png" height="26px" width="26px" alt="star on">`);
+				}
+				for (let x = 0; x < (5 - data[i].star); x++) {
+					$(`#myStar${i}`).append(`<img src="images/star_off.png" height="26px" width="26px" alt="star off">`);
+				}
 			}
 		},
 		error: function(error) {
