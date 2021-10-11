@@ -3,6 +3,7 @@ window.onload = function run() {
 	grabData2();
 	grabData3();
 	grabData4();
+	queryForm();
 }
 
 function grabData1() {
@@ -179,5 +180,67 @@ function grabData4() {
 		complete: function() {
 			$('.TheLoad').hide();
 		}
+	})
+}
+
+function queryForm() {
+	$.ajax({
+		type: 'GET',
+		url: 'https://smileschool-api.hbtn.info/courses',
+		success: function(data) {
+			$("#TOPIC").html("");
+			data.topics.forEach(function(topicItem, topicIndex) {
+				$("#TOPIC").append(
+				`<option ${topicIndex === 0 ? "selected" : ""}>
+				${topicItem}</option>`);
+			});
+			$("#SORT").html("");
+			data.sorts.forEach(function(sortItem, sortIndex) {
+				$("#SORT").append(
+					`<option ${sortIndex === 0 ? "selected" : ""} value="sortItem">
+					${sortItem}</option>`);
+			});
+			grabData5($(`#search`).val(), $("#TOPIC").val(), $("#SORT").val());
+		}
+	})
+}
+
+function grabData5(q, topic, sort) {
+	$.ajax({
+		type: 'GET',
+		url: `https://smileschool-api.hbtn.info/courses?q=${q}&topic=${topic}&sort=${sort}`,
+		success: function(data) {
+			for (let i = 0; i < data.length; i++) {
+				$("#courses").html("");
+				$("#courses").append(
+					`<div class="card col-lg-3 col-md-4 col-12 border-0">
+						<img class="card-img-top" src="${data[i].thumb_url}" alt="">
+						<div class="card-body">
+							<h1 class="card-title lead font-weight-bold">${data[i].title}</h1>
+							<p class="card-text text-secondary">${data[i]["sub-title"]}</p>
+							<div class="row">
+								<img class="rounded-circle ml-3" src="${data[i].author_pic_url}" height="25px" width="25px"
+									alt="">
+								<img class="card-img-overlay mx-auto mt-5 mt-md-0 mb-auto" src="images/play.png" alt="">
+								<p class="ml-3 purple">${data[i].name}</p>
+							</div>
+							<div class="row justify-content-between mx-3">
+								<div class="row mt-2" id="Rating${i}">
+								</div>
+								<p class="purp mt-2">${data[i].duration}</p>
+							</div>
+						</div>
+					</div>`);
+				}
+			},
+		error: function(error) {
+			alert(error);
+		},
+		complete: function() {
+			// $('').hide();
+		}
+	})
+	$("#myForm").change(function() {
+		grabData5($("#search").val(), $("#TOPIC").val(), $("#SORT").val());
 	})
 }
